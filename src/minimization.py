@@ -230,6 +230,7 @@ def minimize(variables, on_set, off_set):
 
     result = {
         "minimized_sop": minimized_sop,
+        "sop_cubes": sop_cover,
         "minimized_pos": minimized_pos,
         "prime_implicants": prime_terms,
         "prime_implicant_count": len(prime_terms),
