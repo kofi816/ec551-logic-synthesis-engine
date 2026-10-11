@@ -71,10 +71,12 @@ def main():
     print()
     print("ON-set:")
     print(on_set)
+    print("Total number of ON-set minterms:", len(on_set))
 
     print()
     print("OFF-set:")
     print(off_set)
+    print("Total number of ON-set minterms:", len(on_set))
 
     print()
 
