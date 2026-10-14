@@ -38,6 +38,22 @@ To run all predefined parser test cases at once, run:
 python3 tests/test_parser.py
 ```
 
+## Testing the Truth Table Generation
+
+To test a Boolean expression manually, run:
+
+```bash
+python3 src/truth_table.py "A'B' + AB"
+```
+
+Replace the expression in quotes with any expression you want to test.
+
+To run all predefined parser test cases at once, run:
+
+```bash
+python3 tests/test_truth_table.py
+```
+
 
 ## Team Split
 
