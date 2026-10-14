@@ -76,7 +76,7 @@ def main():
     print()
     print("OFF-set:")
     print(off_set)
-    print("Total number of ON-set minterms:", len(on_set))
+    print("Total number of OFF-set maxterms:", len(off_set))
 
     print()
 

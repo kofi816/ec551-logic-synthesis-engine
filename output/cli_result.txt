@@ -1,0 +1,51 @@
+Expression:
+A + A'
+
+Variables:
+['A']
+
+Truth table:
+A | F
+-------
+0 | 1
+1 | 1
+
+ON-set:
+[0, 1]
+Total number of ON-set minterms: 2
+
+OFF-set:
+[]
+Total number of OFF-set minterms: 0
+
+Canonical SOP:
+A' + A
+
+Canonical POS:
+1
+
+Inverse Canonical SOP:
+0
+
+Inverse Canonical POS:
+(A)(A')
+
+Minimized SOP:
+1
+
+Minimized POS:
+1
+
+Prime implicants:
+['1']
+Prime implicant count: 1
+
+Essential prime implicants:
+['1']
+Essential prime implicant count: 1
+
+SOP literals saved: 2
+POS literals saved: 0
+
+Structural Verilog file:
+output/generated_logic.v
