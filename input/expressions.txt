@@ -1,0 +1,4 @@
+A'B' + AB
+A + B
+AB + AC
+A'BC + ABC'

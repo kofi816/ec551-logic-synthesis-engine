@@ -1,0 +1,239 @@
+============================================================
+Expression 1
+============================================================
+
+Expression:
+A'B' + AB
+
+Variables:
+['A', 'B']
+
+Truth table:
+A | B | F
+-----------
+0 | 0 | 1
+0 | 1 | 0
+1 | 0 | 0
+1 | 1 | 1
+
+ON-set:
+[0, 3]
+Total number of ON-set minterms: 2
+
+OFF-set:
+[1, 2]
+Total number of OFF-set minterms: 2
+
+Canonical SOP:
+A'B' + AB
+
+Canonical POS:
+(A+B')(A'+B)
+
+Inverse Canonical SOP:
+A'B + AB'
+
+Inverse Canonical POS:
+(A+B)(A'+B')
+
+Minimized SOP:
+A'B' + AB
+
+Minimized POS:
+(A+B')(A'+B)
+
+Prime implicants:
+["A'B'", 'AB']
+Prime implicant count: 2
+
+Essential prime implicants:
+["A'B'", 'AB']
+Essential prime implicant count: 2
+
+SOP literals saved: 0
+POS literals saved: 0
+
+Structural Verilog file:
+output/generated_logic_1.v
+
+============================================================
+Expression 2
+============================================================
+
+Expression:
+A + B
+
+Variables:
+['A', 'B']
+
+Truth table:
+A | B | F
+-----------
+0 | 0 | 0
+0 | 1 | 1
+1 | 0 | 1
+1 | 1 | 1
+
+ON-set:
+[1, 2, 3]
+Total number of ON-set minterms: 3
+
+OFF-set:
+[0]
+Total number of OFF-set minterms: 1
+
+Canonical SOP:
+A'B + AB' + AB
+
+Canonical POS:
+(A+B)
+
+Inverse Canonical SOP:
+A'B'
+
+Inverse Canonical POS:
+(A+B')(A'+B)(A'+B')
+
+Minimized SOP:
+A + B
+
+Minimized POS:
+(A+B)
+
+Prime implicants:
+['A', 'B']
+Prime implicant count: 2
+
+Essential prime implicants:
+['A', 'B']
+Essential prime implicant count: 2
+
+SOP literals saved: 4
+POS literals saved: 0
+
+Structural Verilog file:
+output/generated_logic_2.v
+
+============================================================
+Expression 3
+============================================================
+
+Expression:
+AB + AC
+
+Variables:
+['A', 'B', 'C']
+
+Truth table:
+A | B | C | F
+---------------
+0 | 0 | 0 | 0
+0 | 0 | 1 | 0
+0 | 1 | 0 | 0
+0 | 1 | 1 | 0
+1 | 0 | 0 | 0
+1 | 0 | 1 | 1
+1 | 1 | 0 | 1
+1 | 1 | 1 | 1
+
+ON-set:
+[5, 6, 7]
+Total number of ON-set minterms: 3
+
+OFF-set:
+[0, 1, 2, 3, 4]
+Total number of OFF-set minterms: 5
+
+Canonical SOP:
+AB'C + ABC' + ABC
+
+Canonical POS:
+(A+B+C)(A+B+C')(A+B'+C)(A+B'+C')(A'+B+C)
+
+Inverse Canonical SOP:
+A'B'C' + A'B'C + A'BC' + A'BC + AB'C'
+
+Inverse Canonical POS:
+(A'+B+C')(A'+B'+C)(A'+B'+C')
+
+Minimized SOP:
+AB + AC
+
+Minimized POS:
+(A)(B+C)
+
+Prime implicants:
+['AB', 'AC']
+Prime implicant count: 2
+
+Essential prime implicants:
+['AB', 'AC']
+Essential prime implicant count: 2
+
+SOP literals saved: 5
+POS literals saved: 12
+
+Structural Verilog file:
+output/generated_logic_3.v
+
+============================================================
+Expression 4
+============================================================
+
+Expression:
+A'BC + ABC'
+
+Variables:
+['A', 'B', 'C']
+
+Truth table:
+A | B | C | F
+---------------
+0 | 0 | 0 | 0
+0 | 0 | 1 | 0
+0 | 1 | 0 | 0
+0 | 1 | 1 | 1
+1 | 0 | 0 | 0
+1 | 0 | 1 | 0
+1 | 1 | 0 | 1
+1 | 1 | 1 | 0
+
+ON-set:
+[3, 6]
+Total number of ON-set minterms: 2
+
+OFF-set:
+[0, 1, 2, 4, 5, 7]
+Total number of OFF-set minterms: 6
+
+Canonical SOP:
+A'BC + ABC'
+
+Canonical POS:
+(A+B+C)(A+B+C')(A+B'+C)(A'+B+C)(A'+B+C')(A'+B'+C')
+
+Inverse Canonical SOP:
+A'B'C' + A'B'C + A'BC' + AB'C' + AB'C + ABC
+
+Inverse Canonical POS:
+(A+B'+C')(A'+B'+C)
+
+Minimized SOP:
+A'BC + ABC'
+
+Minimized POS:
+(A+C)(A'+C')(B)
+
+Prime implicants:
+["A'BC", "ABC'"]
+Prime implicant count: 2
+
+Essential prime implicants:
+["A'BC", "ABC'"]
+Essential prime implicant count: 2
+
+SOP literals saved: 0
+POS literals saved: 13
+
+Structural Verilog file:
+output/generated_logic_4.v
