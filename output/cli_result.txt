@@ -1,50 +1,52 @@
 Expression:
-A + A'
+A'B + AB'
 
 Variables:
-['A']
+['A', 'B']
 
 Truth table:
-A | F
--------
-0 | 1
-1 | 1
+A | B | F
+-----------
+0 | 0 | 0
+0 | 1 | 1
+1 | 0 | 1
+1 | 1 | 0
 
 ON-set:
-[0, 1]
+[1, 2]
 Total number of ON-set minterms: 2
 
 OFF-set:
-[]
-Total number of OFF-set minterms: 0
+[0, 3]
+Total number of OFF-set minterms: 2
 
 Canonical SOP:
-A' + A
+A'B + AB'
 
 Canonical POS:
-1
+(A+B)(A'+B')
 
 Inverse Canonical SOP:
-0
+A'B' + AB
 
 Inverse Canonical POS:
-(A)(A')
+(A+B')(A'+B)
 
 Minimized SOP:
-1
+A'B + AB'
 
 Minimized POS:
-1
+(A+B)(A'+B')
 
 Prime implicants:
-['1']
-Prime implicant count: 1
+["A'B", "AB'"]
+Prime implicant count: 2
 
 Essential prime implicants:
-['1']
-Essential prime implicant count: 1
+["A'B", "AB'"]
+Essential prime implicant count: 2
 
-SOP literals saved: 2
+SOP literals saved: 0
 POS literals saved: 0
 
 Structural Verilog file:
