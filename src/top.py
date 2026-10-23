@@ -9,7 +9,18 @@ from on_off_set import generate_on_off_sets
 from canonical import generate_canonical_forms
 from minimization import minimize
 from generator import generate_verilog
+import csv
 
+def export_truth_table_csv(variables, table, output_path):
+    """Export a truth table to CSV with one column per input and F."""
+    os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
+
+    with open(output_path, "w", newline="", encoding="utf-8") as csv_file:
+        writer = csv.writer(csv_file)
+        writer.writerow(list(variables) + ["F"])
+
+        for values, output in table:
+            writer.writerow([values[var] for var in variables] + [output])
 
 def process_expression(expression, verilog_path):
     """Run the complete synthesis flow for one Boolean expression."""
@@ -227,6 +238,13 @@ def run_cli_mode():
         verilog_path
     )
 
+
+    export_truth_table_csv(
+    data["variables"],
+    data["table"],
+    "output/truth_table.csv"
+    )   
+
     output_text = format_result(data)
 
     # Print results to terminal
@@ -287,6 +305,12 @@ def run_file_mode(input_path):
         data = process_expression(
             expression,
             verilog_path
+        )
+
+        export_truth_table_csv(
+            data["variables"],
+            data["table"],
+            f"output/truth_table_{index}.csv"
         )
 
         output_text = format_result(data)
