@@ -11,6 +11,21 @@ from minimization import minimize
 from generator import generate_verilog
 import csv
 
+def count_gates(node):
+    """Count AND, OR, and NOT nodes in the original expression tree."""
+    counts = {"AND": 0, "OR": 0, "NOT": 0}
+
+    if node.type.value in counts:
+        counts[node.type.value] += 1
+
+    for child in node.inputs:
+        child_counts = count_gates(child)
+        counts["AND"] += child_counts["AND"]
+        counts["OR"] += child_counts["OR"]
+        counts["NOT"] += child_counts["NOT"]
+
+    return counts
+
 def export_truth_table_csv(variables, table, output_path):
     """Export a truth table to CSV with one column per input and F."""
     os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
@@ -27,6 +42,7 @@ def process_expression(expression, verilog_path):
 
     # Parse expression
     tree = parse(expression)
+    gate_counts = count_gates(tree)
 
     # Generate truth table
     variables, table = generate_truth_table(tree)
@@ -65,6 +81,7 @@ def process_expression(expression, verilog_path):
 
     return {
         "expression": expression,
+        "gate_counts": gate_counts,
         "variables": variables,
         "table": table,
         "on_set": on_set,
@@ -86,6 +103,12 @@ def format_result(data):
     # Expression
     lines.append("Expression:")
     lines.append(data["expression"])
+
+    lines.append("")
+    lines.append("Original expression gate counts:")
+    lines.append("AND: " + str(data["gate_counts"]["AND"]))
+    lines.append("OR: " + str(data["gate_counts"]["OR"]))
+    lines.append("NOT: " + str(data["gate_counts"]["NOT"]))
 
     # Variables
     lines.append("")
@@ -243,7 +266,7 @@ def run_cli_mode():
     data["variables"],
     data["table"],
     "output/truth_table.csv"
-    )   
+    )
 
     output_text = format_result(data)
 
